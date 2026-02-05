@@ -2,6 +2,14 @@ import streamlit as st
 import pandas as pd
 from io import BytesIO
 
+# === COLUMN DEFINITIONS (EXACT CSV NAMES) ===
+DATE_COL = "Date "
+SYMBOL_COL = "Symbol "
+BUY_SELL_COL = "Buy / Sell "
+QTY_COL = "Quantity Traded "
+PRICE_COL = "Trade Price / Wght. Avg. Price "
+
+
 # ======================================================
 # PAGE CONFIG
 # ======================================================
@@ -307,6 +315,7 @@ daily_net["Accum_30D"] = (
     .sum()
     .reset_index(level=0, drop=True)
 )
+
 
 
 
