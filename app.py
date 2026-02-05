@@ -6,7 +6,7 @@ from io import BytesIO
 # PAGE CONFIG
 # ======================================================
 st.set_page_config(
-    page_title="Smart Money Bulk Deal Dashboard",
+    page_title="Smart Money Bulk Deal Dashboard-By Nyra & Eia",
     layout="wide"
 )
 
@@ -222,4 +222,5 @@ st.download_button(
 )
 
 st.caption("⚠ This is NOT investment advice. Data is for study & research only.")
+
 
