@@ -43,14 +43,15 @@ def df_to_excel(df):
 # ======================================================
 # LOAD & CLEAN DATA
 # ======================================================
-try:
-    DATA_URL = "https://raw.githubusercontent.com/aiearyn/smart-money-bulk-dashboard/main/bulk_deals.csv"
-    df = pd.read_csv(DATA_URL)
-except Exception:
-    df = pd.read_csv("bulk_deals.csv")
+HISTORY_URL = "https://raw.githubusercontent.com/aiearyn/smart-money-bulk-dashboard/main/data/bulk_deals_history.csv"
 
+try:
+    df = pd.read_csv(HISTORY_URL)
+except Exception:
+    df = pd.read_csv("data/bulk_deals_history.csv")
 
 df.columns = df.columns.str.strip()
+
 
 BUY_SELL_COL = "Buy / Sell"
 QTY_COL = "Quantity Traded"
@@ -304,6 +305,7 @@ daily_net["Accum_30D"] = (
     .sum()
     .reset_index(level=0, drop=True)
 )
+
 
 
 
