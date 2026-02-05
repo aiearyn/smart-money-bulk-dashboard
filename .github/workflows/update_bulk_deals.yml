@@ -1,0 +1,26 @@
+name: Update NSE Bulk Deals
+
+on:
+  schedule:
+    - cron: "30 3 * * 1-5"   # 9:00 AM IST (Mon–Fri)
+  workflow_dispatch:
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Download bulk deals CSV
+        run: |
+          curl -L "https://archives.nseindia.com/content/equities/bulk.csv" -o data/bulk_deals.csv
+
+      - name: Commit & push changes
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add data/bulk_deals.csv
+          git commit -m "Daily bulk deals update" || echo "No changes"
+          git push
