@@ -10,7 +10,7 @@ st.set_page_config(
     layout="wide"
 )
 
-st.title("📊 Smart Money Bulk Deal Dashboard")
+st.title("📊 Smart Money Bulk Deal Dashboard-By Nyra & Eia")
 st.caption("Educational market intelligence tool")
 
 # ======================================================
@@ -222,5 +222,6 @@ st.download_button(
 )
 
 st.caption("⚠ This is NOT investment advice. Data is for study & research only.")
+
 
 
