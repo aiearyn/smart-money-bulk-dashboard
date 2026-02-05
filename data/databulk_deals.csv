@@ -1,4 +1,4 @@
-﻿"Date ","Symbol ","Security Name ","Client Name ","Buy / Sell ","Quantity Traded ","Trade Price / Wght. Avg. Price ","Remarks "
+﻿"Date ","Symbol ","Client_Name ","Buy_Sell ","Quantity ","Price"
 "28-JAN-2026","ANTELOPUS","Antelopus Selan Enrgy Ltd","HRTI PRIVATE LIMITED","BUY","3,05,194","587.80","-"
 "28-JAN-2026","ANTELOPUS","Antelopus Selan Enrgy Ltd","HRTI PRIVATE LIMITED","SELL","3,10,980","593.03","-"
 "28-JAN-2026","ANTELOPUS","Antelopus Selan Enrgy Ltd","JUNOMONETA FINSOL PRIVATE LIMITED","BUY","3,94,299","590.26","-"
