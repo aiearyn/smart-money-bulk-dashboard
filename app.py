@@ -125,6 +125,17 @@ report["Probability_Score"] = report.apply(
 )
 
 report = report.sort_values("Probability_Score", ascending=False)
+# ======================================================
+# MERGE LATEST HISTORICAL STATS
+# ======================================================
+latest_hist = (
+    daily_net
+    .sort_values(DATE_COL)
+    .groupby(SYMBOL_COL)
+    .tail(1)[[SYMBOL_COL, "Accum_7D", "Accum_30D"]]
+)
+
+report = report.merge(latest_hist, on=SYMBOL_COL, how="left").fillna(0)
 
 # ======================================================
 # SIDEBAR FILTERS (ALL VARIABLES DEFINED HERE)
@@ -256,6 +267,7 @@ daily_net["Accum_30D"] = (
     .sum()
     .reset_index(level=0, drop=True)
 )
+
 
 
 
