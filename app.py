@@ -184,7 +184,7 @@ st.subheader("📋 Accumulation & Distribution Table")
 
 st.dataframe(
     display_df,
-    use_container_width=True
+    width="stretch"
 )
 
 # ======================================================
@@ -222,3 +222,4 @@ st.download_button(
 )
 
 st.caption("⚠ This is NOT investment advice. Data is for study & research only.")
+
