@@ -43,7 +43,9 @@ def df_to_excel(df):
 # ======================================================
 # LOAD & CLEAN DATA
 # ======================================================
-df = pd.read_csv("bulk_deals.csv")
+DATA_URL = "https://raw.githubusercontent.com/aiearyn/smart-money-bulk-dashboard/main/data/bulk_deals.csv"
+df = pd.read_csv(DATA_URL)
+
 df.columns = df.columns.str.strip()
 
 BUY_SELL_COL = "Buy / Sell"
@@ -222,6 +224,7 @@ st.download_button(
 )
 
 st.caption("⚠ This is NOT investment advice. Data is for study & research only.")
+
 
 
 
