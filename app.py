@@ -43,8 +43,12 @@ def df_to_excel(df):
 # ======================================================
 # LOAD & CLEAN DATA
 # ======================================================
-DATA_URL = "https://raw.githubusercontent.com/aiearyn/smart-money-bulk-dashboard/main/data/bulk_deals.csv"
-df = pd.read_csv(DATA_URL)
+try:
+    DATA_URL = "https://raw.githubusercontent.com/aiearyn/smart-money-bulk-dashboard/main/bulk_deals.csv"
+    df = pd.read_csv(DATA_URL)
+except Exception:
+    df = pd.read_csv("bulk_deals.csv")
+
 
 df.columns = df.columns.str.strip()
 
@@ -224,6 +228,7 @@ st.download_button(
 )
 
 st.caption("⚠ This is NOT investment advice. Data is for study & research only.")
+
 
 
 
