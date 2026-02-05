@@ -44,10 +44,6 @@ def df_to_excel(df):
 # LOAD & CLEAN DATA
 # ======================================================
 HISTORY_URL = "https://raw.githubusercontent.com/aiearyn/smart-money-bulk-dashboard/main/data/bulk_deals_history.csv"
-
-try:
-    df = pd.read_csv(HISTORY_URL)
-except Exception:
 import os
 
 HISTORY_FILE = "data/bulk_deals_history.csv"
@@ -56,6 +52,7 @@ if os.path.exists(HISTORY_FILE):
     df_history = pd.read_csv(HISTORY_FILE)
 else:
     df_history = pd.DataFrame()
+
 
 
 BUY_SELL_COL = "Buy / Sell"
@@ -310,6 +307,7 @@ daily_net["Accum_30D"] = (
     .sum()
     .reset_index(level=0, drop=True)
 )
+
 
 
 
