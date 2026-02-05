@@ -136,6 +136,15 @@ latest_hist = (
 )
 
 report = report.merge(latest_hist, on=SYMBOL_COL, how="left").fillna(0)
+def trend_strength(row):
+    if row["Accum_7D"] > row["Accum_30D"] * 0.8:
+        return "Rising Accumulation"
+    elif row["Accum_7D"] < 0:
+        return "Distribution Risk"
+    else:
+        return "Flat / Neutral"
+
+report["Trend_Strength"] = report.apply(trend_strength, axis=1)
 
 # ======================================================
 # SIDEBAR FILTERS (ALL VARIABLES DEFINED HERE)
@@ -267,6 +276,7 @@ daily_net["Accum_30D"] = (
     .sum()
     .reset_index(level=0, drop=True)
 )
+
 
 
 
