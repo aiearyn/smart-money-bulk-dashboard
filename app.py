@@ -70,6 +70,7 @@ df["Signed_Qty"] = df.apply(
     else -r[QTY_COL],
     axis=1
 )
+df[DATE_COL] = pd.to_datetime(df[DATE_COL], errors="coerce")
 
 # ======================================================
 # AGGREGATIONS
@@ -228,6 +229,7 @@ st.download_button(
 )
 
 st.caption("⚠ This is NOT investment advice. Data is for study & research only.")
+
 
 
 
