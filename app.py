@@ -230,6 +230,17 @@ st.download_button(
 
 st.caption("⚠ This is NOT investment advice. Data is for study & research only.")
 
+# ======================================================
+# DAILY NET ACCUMULATION (FOR HISTORICAL ANALYSIS)
+# ======================================================
+daily_net = (
+    df.groupby([SYMBOL_COL, DATE_COL])["Signed_Qty"]
+    .sum()
+    .reset_index()
+    .sort_values(DATE_COL)
+)
+
+
 
 
 
