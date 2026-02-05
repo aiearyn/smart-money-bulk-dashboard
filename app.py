@@ -240,6 +240,23 @@ daily_net = (
     .sort_values(DATE_COL)
 )
 
+# Rolling accumulation windows
+daily_net["Accum_7D"] = (
+    daily_net
+    .groupby(SYMBOL_COL)["Signed_Qty"]
+    .rolling(window=7, min_periods=1)
+    .sum()
+    .reset_index(level=0, drop=True)
+)
+
+daily_net["Accum_30D"] = (
+    daily_net
+    .groupby(SYMBOL_COL)["Signed_Qty"]
+    .rolling(window=30, min_periods=1)
+    .sum()
+    .reset_index(level=0, drop=True)
+)
+
 
 
 
