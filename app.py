@@ -50,8 +50,6 @@ try:
 except Exception:
     df = pd.read_csv("data/bulk_deals_history.csv")
 
-df.columns = df.columns.str.strip()
-
 
 BUY_SELL_COL = "Buy / Sell"
 QTY_COL = "Quantity Traded"
@@ -305,6 +303,7 @@ daily_net["Accum_30D"] = (
     .sum()
     .reset_index(level=0, drop=True)
 )
+
 
 
 
